@@ -2,8 +2,62 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
         x:Class="TortasApp.MainWindow"
         Title="TortasApp">
-    Welcome to Avalonia!
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto" Margin="20">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, Auto">
+            <StackPanel Grid.Column="0" Spacing="5" HorizontalAlignment="Center">
+                <TextBlock Text="Torta" FontSize="18" FontWeight="Bold"/>
+                <ListBox>
+                    <ListBoxItem Content="Paquete kids"/>
+                    <ListBoxItem Content="Jalapeño"/>
+                    <ListBoxItem Content="Italiana"/>
+                    <ListBoxItem Content="Jamón"/>
+                    <ListBoxItem Content="Ninguno"/>
+                </ListBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" Spacing="5" HorizontalAlignment="Center">
+                <TextBlock Text="Refresco" FontSize="18" FontWeight="Bold"/>
+                <ListBox>
+                    <ListBoxItem Content="Chico"/>
+                    <ListBoxItem Content="Mediano"/>
+                    <ListBoxItem Content="Grande"/>
+                    <ListBoxItem Content="Ninguno"/>
+                </ListBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="2" Spacing="5" HorizontalAlignment="Center">
+                <TextBlock Text="Postres" FontSize="18" FontWeight="Bold"/>
+                <ListBox>
+                    <ListBoxItem Content="Galletas"/>
+                    <ListBoxItem Content="Pay de queso"/>
+                    <ListBoxItem Content="Nieve"/>
+                    <ListBoxItem Content="Ninguno"/>
+                </ListBox>
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel Grid.Row="1" Margin="0,20" HorizontalAlignment="Center">
+            <Button Content="Calcular pago" Width="150" Height="35"/>
+        </StackPanel>
+        
+        <Grid Grid.Row="2" ColumnDefinitions="Auto,100,Auto,Auto,*" Margin="0,30,0,0" ColumnSpacing="10">
+            <TextBlock Text="Obsequio:" VerticalAlignment="Center"/>
+            <TextBox Width="60" Grid.Column="1"/>
+            <Button Content="Buscar" Grid.Column="2" Width="80"/>
+            <TextBox Grid.Column="4" IsReadOnly="True" Text="Paquete barbie"/>
+        </Grid>
+        
+        <Grid Grid.Row="3" ColumnDefinitions="Auto,100" Margin="350,10,0,0" RowDefinitions="Auto,Auto,Auto">
+            <TextBlock Text="Subtotal:" Grid.Row="0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="False"/>
+            <TextBlock Text="IVA:" Grid.Row="1"/>
+            <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
+            <TextBlock Text="Total:" Grid.Row="2"/>
+            <TextBox Grid.Row="2" Grid.Column="1" IsEnabled="False"/>
+
+        </Grid>
+    </Grid>
 </Window>
