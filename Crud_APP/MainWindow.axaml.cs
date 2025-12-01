@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace CRUD_APP.Views;
+namespace Crud_APP;
 
 public partial class MainWindow : Window
 {
