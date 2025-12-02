@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using Mi_Reporte.Models;
+using Reporte.Models;
 
-namespace Mi_Reporte.Data;
+namespace Reporte.Data;
 
 public class AppDbContext : DbContext
 {
-    public DbSet<Person> Persons { get; set; }
+  public DbSet<Person> Persons { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-    {
-        options.UseSqlite("Data Source=mi_reporte.db");
-    }
+  protected override void OnConfiguring(DbContextOptionsBuilder options)
+  {
+    options.UseSqlite("Data Source=reporte.db");
+  }
 }
