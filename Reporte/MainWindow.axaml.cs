@@ -4,6 +4,9 @@ using Avalonia.Controls;
 using Reporte.Data;
 using MsBox.Avalonia;
 using MsBox.Avalonia.Enums;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 
 
 
@@ -41,6 +44,26 @@ public partial class MainWindow : Window
                 text: $"El archivo {ruta} ha sido creado."
             )
             .ShowAsync();
-
+        AbrirArchivo(ruta);
+    }
+    
+    private void AbrirArchivo(string ruta)
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = ruta,
+                UseShellExecute = true
+            });
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+        {
+            Process.Start("xdg-open", ruta);
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            Process.Start("open", ruta);
+        }
     }
 }
