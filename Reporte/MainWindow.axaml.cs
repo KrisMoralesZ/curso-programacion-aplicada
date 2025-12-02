@@ -2,6 +2,9 @@ using System.IO;
 using System.Linq;
 using Avalonia.Controls;
 using Reporte.Data;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Enums;
+
 
 
 namespace Reporte;
@@ -32,8 +35,12 @@ public partial class MainWindow : Window
         string ruta = "reporte.txt";
         await File.WriteAllTextAsync(ruta, reporte);
 
-        // await MessageBox.Avalonia.MessageBoxManager
-        //     .GetMessageBoxStandard("Reporte generado", $"El archivo {ruta} ha sido creado.")
-        //     .ShowAsync();
+        await MessageBoxManager
+            .GetMessageBoxStandard(
+                title: "Reporte generado",
+                text: $"El archivo {ruta} ha sido creado."
+            )
+            .ShowAsync();
+
     }
 }
