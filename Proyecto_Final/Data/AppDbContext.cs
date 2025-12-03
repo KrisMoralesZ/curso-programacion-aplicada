@@ -14,8 +14,7 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        var dbPath = Path.Combine(AppContext.BaseDirectory, "Proyecto_Final.db");
+        var dbPath = Path.Combine(AppContext.BaseDirectory, "MiReporte.db");
         options.UseSqlite($"Data Source={dbPath}");
-    }
+    } 
 }
-
