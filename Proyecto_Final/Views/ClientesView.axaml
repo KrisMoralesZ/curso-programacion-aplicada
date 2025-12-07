@@ -6,8 +6,6 @@
 
         <TextBlock Text="Clientes" FontSize="20" />
 
-        <DataGrid x:Name="TablaClientes" Height="200" Margin="0,10"/>
-
         <TextBox x:Name="TxtNombre" Watermark="Nombre"/>
         <TextBox x:Name="TxtDomicilio" Watermark="Domicilio"/>
         <TextBox x:Name="TxtTelefono" Watermark="Teléfono"/>
@@ -18,6 +16,8 @@
             <Button Content="Actualizar" Click="Actualizar_Click" Margin="10,0" Width="100" />
             <Button Content="Eliminar" Click="Eliminar_Click" Width="100" />
         </StackPanel>
-
+        
+        <ListBox x:Name="TablaClientes" Margin="0,20,0,0" />
+        
     </StackPanel>
 </UserControl>

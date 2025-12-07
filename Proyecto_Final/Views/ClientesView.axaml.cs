@@ -1,3 +1,4 @@
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Proyecto_Final.Models;
@@ -17,7 +18,7 @@ public partial class ClientesView : UserControl
 
     private void Cargar()
     {
-        TablaClientes.ItemsSource = _service.GetAll();
+        TablaClientes.ItemsSource = _service.GetAll().ToList();
     }
 
     private void Agregar_Click(object? sender, RoutedEventArgs e)
