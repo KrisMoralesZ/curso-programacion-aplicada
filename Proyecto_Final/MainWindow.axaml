@@ -6,7 +6,14 @@
         x:Class="Proyecto_Final.MainWindow"
         Title="Proyecto_Final">
         <DockPanel>
-                 <StackPanel Margin="20" HorizontalAlignment="Center">
+
+                <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="_Archivo">
+                                <MenuItem Header="Cerrar" Click="Salir_Click"/>
+                        </MenuItem>
+                </Menu>
+
+                <StackPanel Margin="20" HorizontalAlignment="Center">
 
                         <TextBlock Text="Sistema Administrador"
                                    FontSize="26"
