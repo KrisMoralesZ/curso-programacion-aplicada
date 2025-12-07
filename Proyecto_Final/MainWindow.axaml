@@ -16,6 +16,10 @@
                                 <MenuItem Header="Productos" Click="Productos_Click"/>
                                 <MenuItem Header="Ventas" Click="Ventas_Click"/>
                         </MenuItem>
+                        
+                        <MenuItem Header="_Reportes">
+                                <MenuItem Header="Reporte de Ventas por Fecha" Click="Reportes_Click"/>
+                        </MenuItem>
                 </Menu>
 
                 <StackPanel Margin="20" HorizontalAlignment="Center">
