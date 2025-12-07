@@ -15,6 +15,11 @@ public partial class MainWindow : Window
         VistaContenido.Content = new ClientesView();
     }
     
+    private void Productos_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        VistaContenido.Content = new ProductosView();
+    }
+    
     private void Salir_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         Close();

@@ -13,6 +13,7 @@
                         
                         <MenuItem Header="_Módulos">
                                 <MenuItem Header="Clientes" Click="Clientes_Click"/>
+                                <MenuItem Header="Productos" Click="Productos_Click"/>
                         </MenuItem>
                 </Menu>
 
