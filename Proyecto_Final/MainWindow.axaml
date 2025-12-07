@@ -5,5 +5,18 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Proyecto_Final.MainWindow"
         Title="Proyecto_Final">
-    Welcome to Avalonia!
+        <DockPanel>
+                 <StackPanel Margin="20" HorizontalAlignment="Center">
+
+                        <TextBlock Text="Sistema Administrador"
+                                   FontSize="26"
+                                   Margin="0,20,0,20"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Seleccione una opción del menú superior"
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"/>
+                </StackPanel>
+
+        </DockPanel>
 </Window>
