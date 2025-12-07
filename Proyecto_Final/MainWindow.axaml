@@ -6,10 +6,13 @@
         x:Class="Proyecto_Final.MainWindow"
         Title="Proyecto_Final">
         <DockPanel>
-
                 <Menu DockPanel.Dock="Top">
                         <MenuItem Header="_Archivo">
                                 <MenuItem Header="Cerrar" Click="Salir_Click"/>
+                        </MenuItem>
+                        
+                        <MenuItem Header="_Módulos">
+                                <MenuItem Header="Clientes" Click="Clientes_Click"/>
                         </MenuItem>
                 </Menu>
 
@@ -24,6 +27,8 @@
                                    FontSize="16"
                                    HorizontalAlignment="Center"/>
                 </StackPanel>
+                
+                <ContentControl x:Name="VistaContenido"/>
 
         </DockPanel>
 </Window>
