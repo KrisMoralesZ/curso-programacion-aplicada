@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Proyecto_Final.Views.VentasView">
+
+    <StackPanel Margin="20">
+
+        <TextBlock Text="Ventas" FontSize="20"/>
+
+        <NumericUpDown x:Name="NumTotal" Watermark="Total Venta"/>
+        <Button Content="Registrar Venta" Click="Registrar_Click" Margin="0,10"/>
+
+        <DataGrid x:Name="TablaVentas" Height="200"/>
+
+    </StackPanel>
+</UserControl>
