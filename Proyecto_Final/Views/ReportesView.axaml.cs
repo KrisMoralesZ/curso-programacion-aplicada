@@ -10,31 +10,52 @@ namespace Proyecto_Final.Views;
 
 public partial class ReportesView : UserControl
 {
-    private readonly VentaService _service = new();
+  private readonly VentaService _service = new();
 
-    public ReportesView()
+  public ReportesView()
+  {
+    InitializeComponent();
+  }
+
+  private async void GenerarReporte_Click(object? sender, RoutedEventArgs e)
+  {
+    var desde = FechaInicio.SelectedDate?.Date ?? DateTime.MinValue;
+    var hasta = FechaFin.SelectedDate?.Date ?? DateTime.MaxValue;
+
+    var ventas = _service.GetByFecha(desde, hasta);
+
+    string path = "ReporteVentas.txt";
+
+    var lines = ventas.Select(v => $"{v.IdVenta}\t{v.Fecha:yyyy-MM-dd}\t{v.Total:C}");
+
+    File.WriteAllLines(path, lines);
+
+    await MessageBoxManager
+        .GetMessageBoxStandard(
+            title: "Reporte generado",
+            text: $"Archivo creado: {path}"
+        )
+        .ShowAsync();
+    AbrirArchivo(path);
+  }
+
+  private void AbrirArchivo(string path)
+  {
+    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
     {
-        InitializeComponent();
+      Process.Start(new ProcessStartInfo
+      {
+        FileName = path,
+        UseShellExecute = true
+      });
     }
-
-    private async void GenerarReporte_Click(object? sender, RoutedEventArgs e)
+    else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
     {
-        var desde = FechaInicio.SelectedDate?.Date ?? DateTime.MinValue;
-        var hasta = FechaFin.SelectedDate?.Date ?? DateTime.MaxValue;
-
-        var ventas = _service.GetByFecha(desde, hasta);
-
-        string path = "ReporteVentas.txt";
-
-        var lines = ventas.Select(v => $"{v.IdVenta}\t{v.Fecha:yyyy-MM-dd}\t{v.Total:C}");
-
-        File.WriteAllLines(path, lines);
-   
-        await MessageBoxManager
-            .GetMessageBoxStandard(
-                title: "Reporte generado",
-                text: $"Archivo creado: {path}"
-            )
-            .ShowAsync();
+      Process.Start("xdg-open", path);
     }
+    else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+    {
+      Process.Start("open", path);
+    }
+  }
 }
