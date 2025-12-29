@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Proyecto_Final.MainWindow"
+        Title="Proyecto_Final">
+        <DockPanel>
+                <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="_Archivo">
+                                <MenuItem Header="Cerrar" Click="Salir_Click"/>
+                        </MenuItem>
+                        
+                        <MenuItem Header="_Módulos">
+                                <MenuItem Header="Clientes" Click="Clientes_Click"/>
+                                <MenuItem Header="Productos" Click="Productos_Click"/>
+                                <MenuItem Header="Ventas" Click="Ventas_Click"/>
+                        </MenuItem>
+                        
+                        <MenuItem Header="_Reportes">
+                                <MenuItem Header="Reporte de Ventas por Fecha" Click="Reportes_Click"/>
+                        </MenuItem>
+                </Menu>
+
+                <StackPanel Margin="20" HorizontalAlignment="Center">
+
+                        <TextBlock Text="Sistema Administrador"
+                                   FontSize="26"
+                                   Margin="0,20,0,20"
+                                   HorizontalAlignment="Center"/>
+
+                        <TextBlock Text="Seleccione una opción del menú superior"
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"/>
+                </StackPanel>
+                
+                <ContentControl x:Name="VistaContenido"/>
+
+        </DockPanel>
+</Window>
